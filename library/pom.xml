@@ -16,6 +16,7 @@
     <org.slf4j.version>1.7.21</org.slf4j.version>
     <org.json.version>20160212</org.json.version>
     <com.google.code.gson.version>2.6.2</com.google.code.gson.version>
+    <com.squareup.moshi.version>1.9.2</com.squareup.moshi.version>
     <org.joda.version>0.12</org.joda.version>
     <com.parse.bolts.version>1.4.0</com.parse.bolts.version>
     <com.squareup.okhttp3.version>3.10.0</com.squareup.okhttp3.version>
@@ -32,6 +33,11 @@
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>${com.google.code.gson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.moshi</groupId>
+      <artifactId>moshi</artifactId>
+      <version>${com.squareup.moshi.version}</version>
     </dependency>
     <dependency>
       <groupId>org.joda</groupId>
