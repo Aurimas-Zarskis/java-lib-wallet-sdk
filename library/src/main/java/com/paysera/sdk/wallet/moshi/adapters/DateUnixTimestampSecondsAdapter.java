@@ -14,6 +14,8 @@ public class DateUnixTimestampSecondsAdapter {
     public void toJson(JsonWriter out, @DateUnixTimestamp Date date) throws IOException {
         if (date != null) {
             out.value(date.getTime() / 1000L);
+        } else {
+            out.nullValue();
         }
     }
 
