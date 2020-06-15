@@ -1,10 +1,14 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
 
+import com.squareup.moshi.Json;
+
 public class TransferBeneficiaryPayseraAccount {
     private String phone;
     private String email;
+    @Json(name = "account_number")
     private String accountNumber;
+    @Json(name = "user_id")
     private Integer userId;
 
     public Integer getUserId() {

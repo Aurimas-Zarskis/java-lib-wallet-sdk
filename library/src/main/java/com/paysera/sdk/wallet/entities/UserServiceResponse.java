@@ -1,8 +1,11 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 import java.util.List;
 
 public class UserServiceResponse {
+    @Json(name = "user_id")
     private Integer userId;
     private List<UserService> services;
 

@@ -1,7 +1,11 @@
 package com.paysera.sdk.wallet.entities.locations;
 
+import com.squareup.moshi.Json;
+
 public class LocationServices {
+    @Json(name = "cash_in")
     private LocationService cashIn;
+    @Json(name = "cash_out")
     private LocationService cashOut;
     private LocationService identification;
     private LocationService pay;

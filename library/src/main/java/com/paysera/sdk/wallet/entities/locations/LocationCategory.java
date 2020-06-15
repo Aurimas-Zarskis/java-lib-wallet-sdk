@@ -1,8 +1,11 @@
 package com.paysera.sdk.wallet.entities.locations;
 
+import com.squareup.moshi.Json;
+
 public class LocationCategory {
     private Long id;
     private String title;
+    @Json(name = "parent_id")
     private Integer parentId;
     private LocationCategoryImages images;
 

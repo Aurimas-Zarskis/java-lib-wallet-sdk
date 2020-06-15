@@ -1,10 +1,10 @@
 package com.paysera.sdk.wallet.entities.locations;
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 public class LocationImages {
-    @SerializedName("pin_open")
+    @Json(name = "pin_open")
     private String pinOpenUri;
-    @SerializedName("pin_closed")
+    @Json(name = "pin_closed")
     private String pinClosedUri;
 
     public String getPinOpenUri() {

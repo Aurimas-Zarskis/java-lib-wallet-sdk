@@ -1,19 +1,18 @@
-package com.paysera.sdk.wallet.serializers;
+package com.paysera.sdk.wallet.moshi.adapters;
 
-import com.google.gson.*;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import com.paysera.sdk.wallet.entities.notification.TransferNotification;
-
+import com.squareup.moshi.FromJson;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.ToJson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransferNotificationAdapter extends TypeAdapter<List<TransferNotification>> {
+public class TransferNotificationAdapter {
 
-
-    @Override
-    public void write(JsonWriter out, List<TransferNotification> value) throws IOException {
+    @ToJson
+    public void toJson(JsonWriter out, List<TransferNotification> value) throws IOException {
         out.beginObject();
         for (TransferNotification item : value) {
             out.name(item.getType());
@@ -25,8 +24,8 @@ public class TransferNotificationAdapter extends TypeAdapter<List<TransferNotifi
         out.endObject();
     }
 
-    @Override
-    public List<TransferNotification> read(JsonReader in) throws IOException {
+    @FromJson
+    public List<TransferNotification> fromJson(JsonReader in) throws IOException {
         List<TransferNotification> transferNotifications = new ArrayList<>();
         in.beginObject();
         while (in.hasNext()) {

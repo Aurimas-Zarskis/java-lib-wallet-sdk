@@ -1,11 +1,17 @@
 package com.paysera.sdk.wallet.filters;
 
+import com.squareup.moshi.Json;
+
 import java.util.List;
 
 public class WalletsFilter extends BaseFilter {
+    @Json(name = "email_list")
     private List<String> emailList;
+    @Json(name = "phone_list")
     private List<String> phoneList;
+    @Json(name = "email_hash_list")
     private List<String> emailHashList;
+    @Json(name = "phone_hash_list")
     private List<String> phoneHashList;
 
     public List<String> getEmailList() {

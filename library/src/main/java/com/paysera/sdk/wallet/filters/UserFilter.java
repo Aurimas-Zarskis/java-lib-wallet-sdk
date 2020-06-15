@@ -1,9 +1,13 @@
 package com.paysera.sdk.wallet.filters;
 
+import com.squareup.moshi.Json;
+
 public class UserFilter extends BaseFilter {
     private String email;
     private String phone;
+    @Json(name = "country_code")
     private String countryCode;
+    @Json(name = "person_code")
     private String personCode;
 
     public String getEmail() {

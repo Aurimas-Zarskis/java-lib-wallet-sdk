@@ -1,12 +1,19 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
+import com.squareup.moshi.Json;
+
 public class TransferBeneficiaryBankAccount {
     private String iban;
     private String bic;
+    @Json(name = "bank_code")
     private String bankCode;
+    @Json(name = "bank_title")
     private String bankTitle;
+    @Json(name = "sort_code")
     private String sortCode;
+    @Json(name = "account_number")
     private String accountNumber;
+    @Json(name = "country_code")
     private String countryCode;
 
     public String getBic() {

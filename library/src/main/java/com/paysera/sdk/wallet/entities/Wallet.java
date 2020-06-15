@@ -1,15 +1,15 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class Wallet {
     protected Integer id;
-    @SerializedName("owner")
+    @Json(name = "owner")
     protected Integer ownerId;
-    @SerializedName("account")
+    @Json(name = "account")
     protected AccountInformation accountInformation;
 
     public Integer getId() {

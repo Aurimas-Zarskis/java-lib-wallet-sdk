@@ -1,21 +1,22 @@
-package com.paysera.sdk.wallet.adapters;
+package com.paysera.sdk.wallet.moshi.adapters;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import com.paysera.sdk.wallet.entities.locations.LocationWorkingHour;
 import com.paysera.sdk.wallet.entities.locations.LocationWorkingHoursDay;
+import com.squareup.moshi.FromJson;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.ToJson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationWorkingHoursAdapter extends TypeAdapter<List<LocationWorkingHour>> {
+public class LocationWorkingHoursAdapter {
 
-    @Override
-    public void write(JsonWriter out, List<LocationWorkingHour> value) throws IOException { }
+    @ToJson
+    public void toJson(JsonWriter out, List<LocationWorkingHour> value) throws IOException { }
 
-    @Override
-    public List<LocationWorkingHour> read(JsonReader in) throws IOException {
+    @FromJson
+    public List<LocationWorkingHour> fromJson(JsonReader in) throws IOException {
         List<LocationWorkingHour> workingHours = new ArrayList<>();
         in.beginObject();
             while (in.hasNext()) {

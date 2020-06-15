@@ -1,6 +1,6 @@
 package com.paysera.sdk.wallet.factories.notification;
 
-import com.paysera.sdk.wallet.factories.GsonFactory;
+import com.paysera.sdk.wallet.factories.MoshiFactory;
 import com.paysera.sdk.wallet.normalizers.NotificationEventNormalizer;
 import com.paysera.sdk.wallet.normalizers.NotificationRecipientNormalizer;
 import com.paysera.sdk.wallet.normalizers.NotificationSubscriberNormalizer;
@@ -21,6 +21,6 @@ public class NotificationNormalizerFactory {
     }
 
     public NotificationEventNormalizer createNotificationEventsNormalizer() {
-        return new NotificationEventNormalizer(GsonFactory.createGson());
+        return new NotificationEventNormalizer(MoshiFactory.createMoshi());
     }
 }

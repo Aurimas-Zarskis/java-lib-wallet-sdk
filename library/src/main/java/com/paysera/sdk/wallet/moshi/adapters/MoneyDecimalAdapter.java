@@ -1,16 +1,17 @@
-package com.paysera.sdk.wallet.adapters;
+package com.paysera.sdk.wallet.moshi.adapters;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.paysera.sdk.wallet.moshi.Anotations.MoneyDecimal;
+import com.squareup.moshi.FromJson;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.ToJson;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MoneyDecimalAdapter extends TypeAdapter<Money> {
+public class MoneyDecimalAdapter {
     private final RoundingMode roundingMode;
 
     public MoneyDecimalAdapter(RoundingMode roundingMode) {
@@ -21,16 +22,17 @@ public class MoneyDecimalAdapter extends TypeAdapter<Money> {
         this.roundingMode = RoundingMode.HALF_UP;
     }
 
-    @Override
-    public void write(JsonWriter out, Money money) throws IOException {
+    @ToJson
+    public void toJson(JsonWriter out, @MoneyDecimal Money money) throws IOException {
         out.beginObject();
         out.name("amount_decimal").value(money.getAmount().toPlainString());
         out.name("currency").value(money.getCurrencyUnit().getCode());
         out.endObject();
     }
 
-    @Override
-    public Money read(JsonReader in) throws IOException {
+    @MoneyDecimal
+    @FromJson
+    public Money fromJson(JsonReader in) throws IOException {
         String amount = null;
         String currency = null;
 

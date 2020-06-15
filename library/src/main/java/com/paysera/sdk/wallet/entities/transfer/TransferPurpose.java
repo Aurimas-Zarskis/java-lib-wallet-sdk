@@ -1,9 +1,13 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
+import com.squareup.moshi.Json;
+
 public class TransferPurpose {
     private String details;
     private String reference;
+    @Json(name = "purpose_code")
     private String purposeCode;
+    @Json(name = "details_options")
     private TransferPurposeDetailsOptions detailsOptions;
 
     public String getDetails() {

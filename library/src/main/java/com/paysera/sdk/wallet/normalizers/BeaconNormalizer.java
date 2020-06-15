@@ -1,8 +1,8 @@
 package com.paysera.sdk.wallet.normalizers;
 
 import com.paysera.sdk.wallet.entities.Beacon;
-import com.paysera.sdk.wallet.exceptions.NormalizerException;
 import org.json.JSONObject;
+import java.io.IOException;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
@@ -14,7 +14,7 @@ public class BeaconNormalizer implements DenormalizerInterface<Beacon> {
         this.codeInfoNormalizer = codeInfoNormalizer;
     }
 
-    public Beacon mapToEntity(JSONObject data) throws NormalizerException {
+    public Beacon mapToEntity(JSONObject data) throws IOException {
         Beacon beacon = new Beacon();
 
         beacon.setKey(data.getString("key"));

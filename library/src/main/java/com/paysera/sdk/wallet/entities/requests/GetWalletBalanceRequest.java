@@ -1,9 +1,15 @@
 package com.paysera.sdk.wallet.entities.requests;
 
+import com.squareup.moshi.Json;
+
 public class GetWalletBalanceRequest {
+    @Json(name = "wallet_id")
     private int walletId;
+    @Json(name = "convert_to")
     private String convertTo;
+    @Json(name = "include_convert_to_currency")
     private boolean includeConvertToCurrency;
+    @Json(name = "show_historical_currencies")
     private boolean showHistoricalCurrencies;
 
     public GetWalletBalanceRequest(int walletId) {

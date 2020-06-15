@@ -1,29 +1,30 @@
 package com.paysera.sdk.wallet.normalizers;
 
-import com.google.gson.Gson;
 import com.paysera.sdk.wallet.entities.CodeInfo;
-import com.paysera.sdk.wallet.exceptions.NormalizerException;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 import org.json.JSONObject;
-
-import java.util.HashMap;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.Map;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class CodeInfoNormalizer implements DenormalizerInterface<CodeInfo> {
-    protected Gson jsonSerializer;
+    protected Moshi moshi;
 
-    public CodeInfoNormalizer(Gson jsonSerializer) {
-        this.jsonSerializer = jsonSerializer;
+    public CodeInfoNormalizer(Moshi moshi) {
+        this.moshi = moshi;
     }
 
-    public CodeInfo mapToEntity(JSONObject data) throws NormalizerException {
+    public CodeInfo mapToEntity(JSONObject data) throws IOException {
         CodeInfo codeInfo = new CodeInfo();
+        Type type = Types.newParameterizedType(Map.class, String.class, Object.class);
+        JsonAdapter<Map<String, Object>> mapAdapter = moshi.adapter(type);
 
-        HashMap<String, Object> parameters = this.jsonSerializer.fromJson(
-            data.getJSONObject("parameters").toString(),
-            HashMap.class
-        );
+        Map<String, Object> parameters = mapAdapter.fromJson(data.getJSONObject("parameters").toString());
 
         codeInfo.setParameters(parameters);
         codeInfo.setType(data.getString("type"));

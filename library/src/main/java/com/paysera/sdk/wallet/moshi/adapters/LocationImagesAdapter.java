@@ -1,19 +1,20 @@
-package com.paysera.sdk.wallet.adapters;
+package com.paysera.sdk.wallet.moshi.adapters;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import com.paysera.sdk.wallet.entities.locations.LocationImages;
+import com.squareup.moshi.FromJson;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.ToJson;
 
 import java.io.IOException;
 
-public class LocationImagesAdapter extends TypeAdapter<LocationImages> {
+public class LocationImagesAdapter {
 
-    @Override
-    public void write(JsonWriter out, LocationImages value) throws IOException { }
+    @ToJson
+    public void toJson(JsonWriter out, LocationImages value) throws IOException { }
 
-    @Override
-    public LocationImages read(JsonReader in) throws IOException {
+    @FromJson
+    public LocationImages fromJson(JsonReader in) throws IOException {
         String openUri = null;
         String closedUri = null;
         in.beginObject();

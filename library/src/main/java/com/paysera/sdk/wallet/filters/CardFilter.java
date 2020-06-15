@@ -1,6 +1,9 @@
 package com.paysera.sdk.wallet.filters;
 
+import com.squareup.moshi.Json;
+
 public class CardFilter extends BaseFilter {
+    @Json(name = "user_id")
     private Integer userId;
 
     public Integer getUserId() {

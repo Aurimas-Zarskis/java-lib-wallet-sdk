@@ -1,8 +1,8 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.entities.allowances.TransactionAllowance;
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,18 +13,25 @@ import java.util.List;
 public class Transaction {
 
     private Integer id;
+    @Json(name = "transaction_key")
     private String transactionKey;
+    @Json(name = "valid_for_payment_card_debit")
     private Boolean validForPaymentCardDebit;
+    @Json(name = "redirect_uri")
     private String redirectUri;
     private List<Payment> payments = new ArrayList<>();
     private Project project;
+    @Json(name = "auto_confirm")
     private Boolean autoConfirm;
+    @Json(name = "location_id")
     private Integer locationId;
+    @Json(name = "project_id")
     private Integer projectId;
     private String status;
     private String type;
     private TransactionAllowance allowance;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "created_at")
     private Date createdAt;
 
     public Integer getId() {

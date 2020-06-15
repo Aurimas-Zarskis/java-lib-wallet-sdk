@@ -1,6 +1,9 @@
 package com.paysera.sdk.wallet.entities.requests;
 
+import com.squareup.moshi.Json;
+
 public class ChangePasswordRequest {
+    @Json(name = "old_password")
     private String oldPassword;
     private String password;
 

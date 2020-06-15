@@ -1,11 +1,14 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class Beacon {
     protected String key;
     protected String code;
+    @Json(name = "code_info")
     protected CodeInfo codeInfo;
 
     public String getKey() {

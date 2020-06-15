@@ -1,13 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 
 import java.util.Date;
 
 public class ServerInformation {
 
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
     private Date time;
 
     public Date getTime() {

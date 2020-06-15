@@ -1,5 +1,7 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +12,9 @@ public class Metadata {
     protected Integer total;
     protected Integer offset;
     protected Integer limit;
+    @Json(name = "has_next")
     protected Boolean hasNext;
+    @Json(name = "has_previous")
     protected Boolean hasPrevious;
     protected Map<String, String> cursors = new HashMap<>();
 

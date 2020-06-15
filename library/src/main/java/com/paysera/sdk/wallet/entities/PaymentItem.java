@@ -1,6 +1,7 @@
 package com.paysera.sdk.wallet.entities;
 
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 public class PaymentItem {
@@ -8,6 +9,7 @@ public class PaymentItem {
     private Long price;
     private String currency;
     private Integer quantity;
+    @Json(name = "total_price")
     private Long totalPrice;
 
     public String getTitle() {

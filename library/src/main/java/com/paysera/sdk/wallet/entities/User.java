@@ -1,14 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.DateAdapter;
-
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class User {
+    @Json(name = "display_name")
     private String displayName;
     private Integer id;
     private String email;
@@ -17,10 +15,11 @@ public class User {
     private List<Integer> wallets = new ArrayList<>();
     private UserOptions options;
     private UserIdentity identity;
+    @Json(name = "identification_level")
     private String identificationLevel;
+    @Json(name = "calculated_level")
     private String calculatedLevel;
-    @JsonAdapter(DateAdapter.class)
-    @SerializedName("dob")
+    @Json(name = "dob")
     private Date dateOfBirth;
 
     public Integer getId() {

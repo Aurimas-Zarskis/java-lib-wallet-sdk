@@ -1,18 +1,21 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
+import com.squareup.moshi.Json;
 import java.util.Date;
 
 public class TransactionRequest {
     private Integer id;
+    @Json(name = "user_id")
     private Integer userId;
     private String email;
     private String phone;
+    @Json(name = "initiator_id")
     private Integer initiatorId;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "created_at")
     private Date createdAt;
+    @Json(name = "transaction_key")
     private transient String transactionKey;
 
     public Integer getId() {

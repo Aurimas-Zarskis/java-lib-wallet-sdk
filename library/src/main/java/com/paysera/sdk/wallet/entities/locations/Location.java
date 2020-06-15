@@ -1,20 +1,18 @@
 package com.paysera.sdk.wallet.entities.locations;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.LocationImagesAdapter;
-import com.paysera.sdk.wallet.adapters.LocationWorkingHoursAdapter;
-
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Location {
     private Long id;
+    @Json(name = "project_id")
     private Integer projectId;
     private String title;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "updated_at")
     private Date updatedAt;
     private String status;
     private String description;
@@ -22,15 +20,15 @@ public class Location {
     private float lat;
     private float lng;
     private Integer radius;
-    @JsonAdapter(LocationImagesAdapter.class)
     private LocationImages images;
     private List<LocationPrice> prices = new ArrayList<>();
+    @Json(name = "remote_orders")
     private LocationRemoteOrders remoteOrders;
-    @JsonAdapter(LocationWorkingHoursAdapter.class)
+    @Json(name = "working_hours")
     private List<LocationWorkingHour> workingHours = new ArrayList<>();
-    @SerializedName("services")
+    @Json(name = "services")
     private LocationServices locationServices;
-    @SerializedName("public")
+    @Json(name = "public")
     private boolean publicLocation;
 
     public Long getId() {

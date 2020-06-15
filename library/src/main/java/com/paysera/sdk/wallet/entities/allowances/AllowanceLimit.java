@@ -1,13 +1,14 @@
 package com.paysera.sdk.wallet.entities.allowances;
 
-import com.google.gson.annotations.SerializedName;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 public class AllowanceLimit {
 
+    @Json(name = "max_price")
     private Integer maxPrice;
-    @SerializedName("time")
+    @Json(name = "time")
     private Long seconds;
 
     public Integer getMaxPrice() {

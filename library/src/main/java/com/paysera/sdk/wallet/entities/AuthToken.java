@@ -1,8 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 public class AuthToken {
     private String value;
+    @Json(name = "user_id")
     private Long userId;
+    @Json(name = "session_id")
     private String sessionId;
 
     public String getValue() {

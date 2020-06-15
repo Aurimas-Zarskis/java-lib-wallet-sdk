@@ -1,11 +1,15 @@
 package com.paysera.sdk.wallet.entities.requests;
 
+import com.squareup.moshi.Json;
+
 import java.util.List;
 
 public class AppendContactsToContactBookRequest {
     private List<String> phones;
+    @Json(name = "phone_hashes")
     private List<String> phoneHashes;
     private List<String> emails;
+    @Json(name = "email_hashes")
     private List<String> emailHashes;
 
     public List<String> getPhones() {

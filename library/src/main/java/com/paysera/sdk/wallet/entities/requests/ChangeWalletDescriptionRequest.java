@@ -1,9 +1,9 @@
 package com.paysera.sdk.wallet.entities.requests;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 public class ChangeWalletDescriptionRequest {
-    @SerializedName("description")
+    @Json(name = "description")
     private String walletDescription;
 
     public ChangeWalletDescriptionRequest(String walletDescription) {

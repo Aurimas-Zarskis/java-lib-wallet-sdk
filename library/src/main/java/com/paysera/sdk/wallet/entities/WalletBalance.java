@@ -1,9 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WalletBalance {
+    @Json(name = "currency_balances")
     private List<CurrencyBalance> currencyBalances = new ArrayList<>();
 
     public List<CurrencyBalance> getCurrencyBalances() {

@@ -1,13 +1,18 @@
 package com.paysera.sdk.wallet.entities.confirmations;
 
+import com.squareup.moshi.Json;
+
 import java.util.Map;
 
 public class ConfirmationProperties {
     private String translation;
+    @Json(name = "translation_slug")
     private String translationSlug;
+    @Json(name = "translations_parameters")
     private Map<String, String> translationsParameters;
     private String code;
     private String type;
+    @Json(name = "acceptance_required")
     private Boolean acceptanceRequired;
 
     public String getTranslation() {

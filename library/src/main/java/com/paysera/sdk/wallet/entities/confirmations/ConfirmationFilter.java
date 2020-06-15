@@ -1,7 +1,12 @@
-package com.paysera.sdk.wallet.filters;
+package com.paysera.sdk.wallet.entities.confirmations;
+
+import com.paysera.sdk.wallet.filters.BaseFilter;
+import com.squareup.moshi.Json;
 
 public class ConfirmationFilter extends BaseFilter {
+    @Json(name = "order_by")
     private String orderBy;
+    @Json(name = "order_direction")
     private String orderDirection;
     private String status;
 

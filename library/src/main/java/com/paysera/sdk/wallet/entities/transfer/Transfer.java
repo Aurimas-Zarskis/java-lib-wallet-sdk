@@ -1,13 +1,10 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
-import com.google.gson.annotations.JsonAdapter;
 import java.util.Date;
 import java.util.List;
-
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.MoneyAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.entities.notification.TransferNotification;
-import com.paysera.sdk.wallet.serializers.TransferNotificationAdapter;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 public class Transfer {
@@ -16,28 +13,33 @@ public class Transfer {
 
     private String id;
     private String status;
-    @JsonAdapter(MoneyAdapter.class)
     private Money amount;
     private TransferBeneficiary beneficiary;
     private TransferPayer payer;
     private TransferPurpose purpose;
     private Boolean cancelable;
     private TransferInitiator initiator;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "created_at")
     private Date createdAt;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "perform_at")
     private Date performAt;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "performed_at")
     private Date performedAt;
+    @Json(name = "auto_currency_convert")
     private Boolean autoCurrencyConvert;
+    @Json(name = "auto_charge_related_card")
     private Boolean autoChargeRelatedCard;
     private String urgency;
-    @JsonAdapter(MoneyAdapter.class)
+    @Json(name = "out_commission")
     private Money outCommission;
+    @Json(name = "failure_status")
     private FailureStatus failureStatus;
     private Password password;
-    @JsonAdapter(TransferNotificationAdapter.class)
     private List<TransferNotification> notifications;
+    @Json(name = "allowed_to_cancel")
     private Boolean allowedToCancel;
 
     public List<TransferNotification> getNotifications() {

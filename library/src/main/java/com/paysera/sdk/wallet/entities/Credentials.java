@@ -1,20 +1,23 @@
 package com.paysera.sdk.wallet.entities;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.CredentialsValidUntilAdapter;
 
+import com.paysera.sdk.wallet.moshi.Anotations.DateValidUntil;
+import com.squareup.moshi.Json;
 import java.util.Date;
 
 public class Credentials {
+    @Json(name = "access_token")
     private String accessToken;
+    @Json(name = "token_type")
     private String tokenType;
-    @JsonAdapter(CredentialsValidUntilAdapter.class)
-    @SerializedName("expires_in")
+    @DateValidUntil
+    @Json(name = "expires_in")
     private Date validUntil;
+    @Json(name = "mac_key")
     private String macKey;
+    @Json(name = "mac_algorithm")
     private String macAlgorithm;
+    @Json(name = "refresh_token")
     private String refreshToken;
-
 
     public String getAccessToken() {
         return accessToken;

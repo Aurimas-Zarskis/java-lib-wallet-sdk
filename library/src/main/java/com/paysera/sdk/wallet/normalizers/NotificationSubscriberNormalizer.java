@@ -4,10 +4,14 @@ import com.paysera.sdk.wallet.entities.notification.NotificationSubscriber;
 import com.paysera.sdk.wallet.exceptions.NormalizerException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
-public class NotificationSubscriberNormalizer implements NormalizerInterface<NotificationSubscriber>, DenormalizerInterface<NotificationSubscriber> {
+public class NotificationSubscriberNormalizer implements NormalizerInterface<NotificationSubscriber>,
+    DenormalizerInterface<NotificationSubscriber> {
+
     protected NotificationRecipientNormalizer notificationRecipientNormalizer;
     protected NotificationEventNormalizer notificationEventNormalizer;
 
@@ -48,7 +52,7 @@ public class NotificationSubscriberNormalizer implements NormalizerInterface<Not
         return data;
     }
 
-    public NotificationSubscriber mapToEntity(JSONObject data) throws NormalizerException {
+    public NotificationSubscriber mapToEntity(JSONObject data) throws NormalizerException, IOException {
         NotificationSubscriber notificationSubscriber = new NotificationSubscriber();
 
         if (data.has("id")) {

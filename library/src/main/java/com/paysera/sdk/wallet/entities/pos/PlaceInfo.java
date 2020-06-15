@@ -1,10 +1,14 @@
 package com.paysera.sdk.wallet.entities.pos;
 
+import com.squareup.moshi.Json;
+
 public class PlaceInfo {
     private String title;
     private String description;
     private String address;
+    @Json(name = "location_id")
     private Integer locationId;
+    @Json(name = "logo_uri")
     private String logoUri;
 
     public String getTitle() {

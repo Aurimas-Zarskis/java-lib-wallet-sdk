@@ -1,15 +1,23 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
+import com.squareup.moshi.Json;
+
 public class TransferBeneficiary {
     private String type;
     private String name;
+    @Json(name = "bank_account")
     private TransferBeneficiaryBankAccount bankAccount;
+    @Json(name = "webmoney_account")
     private TransferBeneficiaryWebmoneyAccount webmoneyAccount;
+    @Json(name = "payza_account")
     private TransferBeneficiaryPayzaAccount payzaAccount;
+    @Json(name = "tax_account")
     private TransferBeneficiaryTaxAccount taxAccount;
+    @Json(name = "paysera_account")
     private TransferBeneficiaryPayseraAccount payseraAccount;
     private TransferIdentifiers identifiers;
     private TransferBeneficiaryAddress address;
+    @Json(name = "additional_information")
     private TransferBeneficiaryAdditionalInformation additionalInformation;
 
     public Boolean isBankAccount() {

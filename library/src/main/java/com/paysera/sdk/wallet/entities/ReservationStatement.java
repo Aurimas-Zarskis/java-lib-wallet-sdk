@@ -1,21 +1,24 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.MoneyDecimalAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
+import com.paysera.sdk.wallet.moshi.Anotations.MoneyDecimal;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 import java.util.Date;
 
 public class ReservationStatement {
 
-    @JsonAdapter(MoneyDecimalAdapter.class)
+    @MoneyDecimal
     private Money amount;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
     private Date date;
     private String details;
     private String type;
+    @Json(name = "transfer_id")
     private Integer transferId;
+    @Json(name = "other_party")
     private OtherParty otherParty;
+    @Json(name = "reference_number")
     private String referenceNumber;
     private String direction;
 

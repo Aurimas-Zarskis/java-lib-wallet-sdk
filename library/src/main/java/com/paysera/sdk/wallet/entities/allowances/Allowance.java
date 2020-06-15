@@ -1,6 +1,7 @@
 package com.paysera.sdk.wallet.entities.allowances;
 
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 import java.util.List;
@@ -9,6 +10,7 @@ public class Allowance {
 
     private String description;
     private String currency;
+    @Json(name = "max_price")
     private Integer maxPrice;
     private AllowanceValid valid;
     private List<AllowanceLimit> limits;

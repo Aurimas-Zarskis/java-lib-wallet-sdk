@@ -1,17 +1,16 @@
 package com.paysera.sdk.wallet.entities.allowances;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
+import com.squareup.moshi.Json;
 
 import java.util.Date;
 
 public class AllowanceValid {
 
-    @SerializedName("for")
+    @Json(name = "for")
     private Long validFor;
-    @SerializedName("until")
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @Json(name = "until")
+    @DateUnixTimestamp
     private Date validUntil;
 
     public Long getValidFor() {

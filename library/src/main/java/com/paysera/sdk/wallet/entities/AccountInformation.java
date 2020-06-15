@@ -1,7 +1,6 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.SerializedName;
-
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +17,15 @@ public class AccountInformation {
     public static final String STATUS_ACTIVE = "active";
     public static final String STATUS_CLOSED = "closed";
 
-    @SerializedName("number")
+    @Json(name = "number")
     private String accountNumber;
+    @Json(name = "user_id")
     private Integer userId;
+    @Json(name = "owner_type")
     private String ownerType;
+    @Json(name = "owner_title")
     private String ownerTitle;
+    @Json(name = "owner_display_name")
     private String ownerDisplayName;
     private String type;
     private List<String> ibans = new ArrayList<>();

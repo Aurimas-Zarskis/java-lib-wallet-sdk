@@ -1,10 +1,16 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 public class OtherParty {
+    @Json(name = "display_name")
     protected String displayName;
+    @Json(name = "wallet_id")
     protected Integer walletId;
+    @Json(name = "user_id")
     protected Integer userId;
     protected String code;
+    @Json(name = "account_number")
     protected String accountNumber;
     protected String phone;
     protected String email;

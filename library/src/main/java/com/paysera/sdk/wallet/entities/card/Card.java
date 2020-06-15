@@ -1,9 +1,8 @@
 package com.paysera.sdk.wallet.entities.card;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.entities.CommissionRule;
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,14 +11,17 @@ public class Card {
     private static final String STATUS_RELATED = "related";
 
     protected Integer id;
+    @Json(name = "user_id")
     private Integer userId;
     protected String status;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "related_at")
     private Date relatedAt;
     private CardRelation relation;
-    @SerializedName("card_data")
+    @Json(name = "card_data")
     protected CardData data;
     private List<CardAccount> accounts = new ArrayList<>();
+    @Json(name = "commission_rule")
     private CommissionRule commissionRule;
 
     public Integer getId() {

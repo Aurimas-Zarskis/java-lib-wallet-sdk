@@ -1,5 +1,6 @@
 package com.paysera.sdk.wallet.filters;
 
+import com.squareup.moshi.Json;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class LocationsFilter extends BaseFilter {
     private Float lat;
     private Float lng;
     private Float distance;
+    @Json(name = "updated_after")
     private Date updatedAfter;
     private List<String> statuses;
 

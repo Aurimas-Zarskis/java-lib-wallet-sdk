@@ -1,7 +1,11 @@
 package com.paysera.sdk.wallet.filters;
 
+import com.squareup.moshi.Json;
+
 public class TransactionFilter extends BaseFilter {
+    @Json(name = "project_id")
     private Integer projectId;
+    @Json(name = "location_id")
     private Integer locationId;
     private String status;
     private Integer limit;

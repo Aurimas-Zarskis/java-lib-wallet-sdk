@@ -1,12 +1,12 @@
 package com.paysera.sdk.wallet.entities.allowances;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 public class TransactionAllowance {
     private Integer id;
-    @SerializedName("data")
+    @Json(name = "data")
     private Allowance allowance;
-    @SerializedName("optional")
+    @Json(name = "optional")
     private Boolean isOptional;
 
     public Integer getId() {

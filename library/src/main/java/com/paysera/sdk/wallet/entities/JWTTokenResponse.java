@@ -1,8 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 public class JWTTokenResponse {
 
+    @Json(name = "access_token")
     private String accessToken;
+    @Json(name = "expires_in")
     private int expiresIn;
     private String scope;
 

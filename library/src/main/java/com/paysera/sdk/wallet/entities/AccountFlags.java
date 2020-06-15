@@ -1,10 +1,10 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 public class AccountFlags {
     private Boolean savings;
-    @SerializedName("public")
+    @Json(name = "public")
     private Boolean publicFlag;
 
     public Boolean getSavings() {

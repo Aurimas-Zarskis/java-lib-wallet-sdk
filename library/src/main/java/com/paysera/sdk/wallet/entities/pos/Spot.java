@@ -1,5 +1,7 @@
 package com.paysera.sdk.wallet.entities.pos;
 
+import com.squareup.moshi.Json;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class Spot {
     private Long id;
     private String status;
     private String identifier;
+    @Json(name = "place_info")
     private PlaceInfo placeInfo;
     private List<Order> orders;
 

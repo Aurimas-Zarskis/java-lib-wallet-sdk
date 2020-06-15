@@ -1,20 +1,25 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 import java.util.Date;
 
 public class CurrencyConversionResult {
     private Integer id;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
     private Date date;
+    @Json(name = "from_amount")
     private Integer fromAmount;
+    @Json(name = "from_currency")
     private String fromCurrency;
+    @Json(name = "to_amount")
     private Integer toAmount;
+    @Json(name = "to_currency")
     private String toCurrency;
+    @Json(name = "account_number")
     private String accountNumber;
 
     public Integer getId() {

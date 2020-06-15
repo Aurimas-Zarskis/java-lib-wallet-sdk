@@ -1,12 +1,21 @@
 package com.paysera.sdk.wallet.entities.requests;
 
+import com.squareup.moshi.Json;
+
 public class ConvertCurrencyCurrencyRequest {
+    @Json(name = "from_amount")
     private Integer fromAmount;
+    @Json(name = "from_currency")
     private String fromCurrency;
+    @Json(name = "to_amount")
     private Integer toAmount;
+    @Json(name = "to_currency")
     private String toCurrency;
+    @Json(name = "account_number")
     private String accountNumber;
+    @Json(name = "max_from_amount")
     private Integer maxFromAmount;
+    @Json(name = "min_to_amount")
     private Integer minToAmount;
 
     public Integer getFromAmount() {

@@ -1,7 +1,11 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
+import com.squareup.moshi.Json;
+
 public class TransferBeneficiaryAddress {
+    @Json(name = "address_line")
     private String addressLine;
+    @Json(name = "country_code")
     private String countryCode;
 
     public String getAddressLine() {

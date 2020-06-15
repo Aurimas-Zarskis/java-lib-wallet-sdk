@@ -1,8 +1,12 @@
 package com.paysera.sdk.wallet.entities.locations;
 
+import com.squareup.moshi.Json;
+
 public class LocationWorkingHour {
     private LocationWorkingHoursDay day;
+    @Json(name = "opening_time")
     private String openingTime;
+    @Json(name = "closing_time")
     private String closingTime;
 
     public LocationWorkingHoursDay getDay() {

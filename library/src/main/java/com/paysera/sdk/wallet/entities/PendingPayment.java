@@ -1,26 +1,30 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.MoneyDecimalAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
+import com.paysera.sdk.wallet.moshi.Anotations.MoneyDecimal;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 import java.util.Date;
 
 public class PendingPayment {
 
     private Long id;
-    @JsonAdapter(MoneyDecimalAdapter.class)
+    @MoneyDecimal
     private Money amount;
     private String details;
     private String type;
     private String direction;
     private boolean cancelable;
+    @Json(name = "transfer_id")
     private Integer transferId;
+    @Json(name = "other_party")
     private OtherParty otherParty;
+    @Json(name = "transaction_key")
     private String transactionKey;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
     private Date date;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "valid_until")
     private Date validUntil;
     private String password;
 

@@ -3,11 +3,14 @@ package com.paysera.sdk.wallet.filters;
 import com.paysera.sdk.wallet.entities.AccountInformation;
 import com.paysera.sdk.wallet.entities.Wallet;
 import com.paysera.sdk.wallet.entities.WalletIdentifier;
+import com.squareup.moshi.Json;
 
 public class WalletFilter {
     private String email;
     private String phone;
+    @Json(name = "account_number")
     private String accountNumber;
+    @Json(name = "user_id")
     private Integer userId;
 
     public static WalletFilter createFromWalletIdentifier(WalletIdentifier walletIdentifier) {

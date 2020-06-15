@@ -1,5 +1,7 @@
 package com.paysera.sdk.wallet.entities.card;
 
+import com.squareup.moshi.Json;
+
 import java.util.Date;
 
 /**
@@ -10,6 +12,7 @@ public class CardData {
     protected String holder;
     protected String type;
     protected String country;
+    @Json(name = "expires_at")
     protected Date expiresAt;
 
     public String getNumber() {

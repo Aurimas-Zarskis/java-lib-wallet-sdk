@@ -1,7 +1,6 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.SerializedName;
-
+import com.squareup.moshi.Json;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +14,12 @@ public class IdentificationRequest {
     public static final String STATUS_REVIEWED = "reviewed";
 
     private Integer id;
+    @Json(name = "user_id")
     private Integer userId;
     private String status;
+    @Json(name = "face+photo_document")
     private FaceDocument facePhotoDocument;
-    @SerializedName("identity_documents")
+    @Json(name = "identity_documents")
     private List<IdentityDocument> identityDocumentList = new ArrayList<>();
 
     public Integer getId() {

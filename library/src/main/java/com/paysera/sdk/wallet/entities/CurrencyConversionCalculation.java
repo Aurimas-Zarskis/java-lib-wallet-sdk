@@ -1,13 +1,19 @@
 package com.paysera.sdk.wallet.entities;
 
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
 
 public class CurrencyConversionCalculation {
+    @Json(name = "from_amount")
     private Integer fromAmount;
+    @Json(name = "from_currency")
     private String fromCurrency;
+    @Json(name = "to_amount")
     private Integer toAmount;
+    @Json(name = "to_currency")
     private String toCurrency;
+    @Json(name = "account_number")
     private String accountNumber;
 
     public Integer getFromAmount() {

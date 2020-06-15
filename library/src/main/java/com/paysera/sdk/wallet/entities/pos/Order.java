@@ -1,6 +1,7 @@
 package com.paysera.sdk.wallet.entities.pos;
 
 import com.paysera.sdk.wallet.entities.Transaction;
+import com.squareup.moshi.Json;
 
 public class Order {
 
@@ -10,8 +11,10 @@ public class Order {
     public static final String STATUS_CLOSED = "closed";
 
     private Integer id;
+    @Json(name = "transaction_key")
     private String transactionKey;
     private String status;
+    @Json(name = "user_id")
     private String userId;
     private Transaction transaction;
 

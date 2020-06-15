@@ -1,6 +1,9 @@
 package com.paysera.sdk.wallet.entities.confirmations;
 
+import com.squareup.moshi.Json;
+
 public class Confirmation {
+    @Json(name = "challenge_id")
     private String challengeId;
     private String identifier;
     private String status;

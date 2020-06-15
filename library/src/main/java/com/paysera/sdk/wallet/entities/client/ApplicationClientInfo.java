@@ -1,10 +1,13 @@
 package com.paysera.sdk.wallet.entities.client;
 
+import com.squareup.moshi.Json;
+
 public class ApplicationClientInfo {
     private String title;
     private String os;
     private String model;
     private String imei;
+    @Json(name = "device_id")
     private String deviceId;
 
     public String getTitle() {

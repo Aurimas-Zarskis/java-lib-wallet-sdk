@@ -1,11 +1,9 @@
 package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import com.squareup.moshi.Json;
 import org.joda.money.Money;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -14,21 +12,24 @@ import java.util.List;
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class Payment {
-    @SerializedName("beneficiary")
+    @Json(name = "beneficiary")
     private WalletIdentifier beneficiaryIdentifier;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "freeze_until")
     private Date freezeUntil;
-    @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
+    @DateUnixTimestamp
+    @Json(name = "created_at")
     private Date createdAt;
     private Integer price;
     private String currency;
     private Integer cashback;
     private Integer id;
+    @Json(name = "transaction_key")
     private String transactionKey;
     private String status;
     private String description;
     private Boolean cancelable;
-    @SerializedName("password")
+    @Json(name = "password")
     private PaymentPassword paymentPassword;
     private List<PaymentItem> items;
 

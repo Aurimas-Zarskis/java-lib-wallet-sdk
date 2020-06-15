@@ -1,5 +1,7 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
@@ -7,6 +9,7 @@ public class Project {
     private Integer id;
     private String title;
     private String description;
+    @Json(name = "wallet_id")
     private Integer walletId;
 
     // Only in Response. Used with extended fields.

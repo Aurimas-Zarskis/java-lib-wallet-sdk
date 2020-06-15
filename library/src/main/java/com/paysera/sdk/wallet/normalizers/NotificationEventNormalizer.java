@@ -1,14 +1,17 @@
 package com.paysera.sdk.wallet.normalizers;
 
-import com.google.gson.Gson;
 import com.paysera.sdk.wallet.entities.notification.NotificationEvent;
 import com.paysera.sdk.wallet.exceptions.NormalizerException;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
@@ -19,10 +22,10 @@ public class NotificationEventNormalizer implements
     ArrayNormalizerInterface<NotificationEvent>,
     ArrayDenormalizerInterface<NotificationEvent> {
 
-    protected Gson jsonSerializer;
+    protected Moshi moshi;
 
-    public NotificationEventNormalizer(Gson jsonSerializer) {
-        this.jsonSerializer = jsonSerializer;
+    public NotificationEventNormalizer(Moshi moshi) {
+        this.moshi = moshi;
     }
 
     public JSONObject mapFromEntity(NotificationEvent entity) throws NormalizerException {
@@ -57,7 +60,9 @@ public class NotificationEventNormalizer implements
         return result;
     }
 
-    public NotificationEvent mapToEntity(JSONObject data) throws NormalizerException {
+    public NotificationEvent mapToEntity(JSONObject data) throws IOException {
+        Type type = Types.newParameterizedType(Map.class, String.class, Object.class);
+        JsonAdapter<Map<String, Object>> hashMapAdapter = moshi.adapter(type);
         NotificationEvent event;
         try {
             event = new NotificationEvent(data.getString("object"), data.getString("event"));
@@ -68,10 +73,7 @@ public class NotificationEventNormalizer implements
         event.setSilent(data.getBoolean("silent"));
 
         if (data.has("parameters")) {
-            HashMap<String, Object> parameters = this.jsonSerializer.fromJson(
-                data.getJSONObject("parameters").toString(),
-                HashMap.class
-            );
+            Map<String, Object> parameters = hashMapAdapter.fromJson(data.getJSONObject("parameters").toString());
 
             event.setParameters(parameters);
         }
@@ -79,7 +81,7 @@ public class NotificationEventNormalizer implements
         return event;
     }
 
-    public List<NotificationEvent> mapToEntity(JSONArray data) throws NormalizerException {
+    public List<NotificationEvent> mapToEntity(JSONArray data) throws IOException {
         List<NotificationEvent> events = new ArrayList<>();
 
         for (int i = 0; i < data.length(); ++i) {

@@ -2,19 +2,23 @@ package com.paysera.sdk.wallet.filters;
 
 import com.paysera.sdk.wallet.enums.Direction;
 import com.paysera.sdk.wallet.enums.OrderDirection;
-
+import com.squareup.moshi.Json;
 import java.util.Date;
 import java.util.List;
 
 public class StatementsFilter extends BaseFilter {
+    @Json(name = "wallet_id")
     private Integer walletId;
     private Date from;
     private Date to;
+    @Json(name = "from_id")
     private Integer fromId;
     private String text;
     private List<String> currencies;
     private Direction direction;
+    @Json(name = "order_direction")
     private OrderDirection orderDirection;
+    @Json(name = "order_by")
     private String orderBy;
     private String before;
     private String after;

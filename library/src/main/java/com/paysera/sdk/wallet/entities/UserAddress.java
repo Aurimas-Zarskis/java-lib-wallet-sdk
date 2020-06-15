@@ -1,9 +1,12 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.squareup.moshi.Json;
+
 public class UserAddress {
     private String country;
     private String city;
     private String street;
+    @Json(name = "post_index")
     private String postIndex;
 
     public String getCountry() {

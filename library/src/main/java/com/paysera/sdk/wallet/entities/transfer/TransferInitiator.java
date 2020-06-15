@@ -1,6 +1,9 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
+import com.squareup.moshi.Json;
+
 public class TransferInitiator {
+    @Json(name = "user_id")
     private Integer userId;
 
     public Integer getUserId() {
