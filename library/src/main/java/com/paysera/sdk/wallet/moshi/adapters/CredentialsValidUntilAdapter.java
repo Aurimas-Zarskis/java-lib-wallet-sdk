@@ -12,10 +12,10 @@ import java.util.Date;
 public class CredentialsValidUntilAdapter{
 
     @ToJson
-    public void toJson(JsonWriter out, @DateValidUntil Date value) throws IOException { }
+    public void toJson(JsonWriter out, @DateValidUntil Date value) { }
 
-    @DateValidUntil
     @FromJson
+    @DateValidUntil
     public Date fromJson(JsonReader in) throws IOException {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());

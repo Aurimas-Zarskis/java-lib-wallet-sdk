@@ -6,6 +6,11 @@ public class ApplicationClient extends Client {
     private Credentials credentials;
     private ApplicationClientInfo info;
 
+    public ApplicationClient(Credentials credentials, ApplicationClientInfo info) {
+        this.credentials = credentials;
+        this.info = info;
+    }
+
     @Override
     public String getType() {
         return "app_client";

@@ -30,8 +30,8 @@ public class MoneyDecimalAdapter {
         out.endObject();
     }
 
-    @MoneyDecimal
     @FromJson
+    @MoneyDecimal
     public Money fromJson(JsonReader in) throws IOException {
         String amount = null;
         String currency = null;
