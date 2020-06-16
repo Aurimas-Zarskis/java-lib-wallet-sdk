@@ -12,8 +12,8 @@ import static java.util.Collections.emptyList;
 
 public class NullToEmptyListAdapter extends JsonAdapter<List<?>> {
     public static final Factory Factory = new JsonAdapter.Factory() {
-        @Nullable
-        @Override
+
+        @Override @Nullable
         public JsonAdapter<?> create(Type type, Set<? extends Annotation> annotations, Moshi moshi) {
             if (!annotations.isEmpty()) {
                 return null;
