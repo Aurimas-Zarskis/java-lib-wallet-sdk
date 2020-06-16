@@ -11,7 +11,9 @@ import java.io.IOException;
 public class LocationImagesAdapter {
 
     @ToJson
-    public void toJson(JsonWriter out, LocationImages value) throws IOException { }
+    public void toJson(JsonWriter out, LocationImages value) throws IOException {
+        out.nullValue();
+    }
 
     @FromJson
     public LocationImages fromJson(JsonReader in) throws IOException {

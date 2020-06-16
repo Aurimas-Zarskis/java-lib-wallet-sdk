@@ -12,7 +12,13 @@ import java.util.Date;
 public class CredentialsValidUntilAdapter{
 
     @ToJson
-    public void toJson(JsonWriter out, @DateValidUntil Date value) { }
+    public void toJson(JsonWriter out, @DateValidUntil Date date) throws IOException {
+        if (date != null) {
+            out.value(date.getTime() / 1000);
+        } else {
+            out.nullValue();
+        }
+    }
 
     @FromJson
     @DateValidUntil

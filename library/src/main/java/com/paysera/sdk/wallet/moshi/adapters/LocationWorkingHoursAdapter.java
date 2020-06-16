@@ -13,7 +13,9 @@ import java.util.List;
 public class LocationWorkingHoursAdapter {
 
     @ToJson
-    public void toJson(JsonWriter out, List<LocationWorkingHour> value) throws IOException { }
+    public void toJson(JsonWriter out, List<LocationWorkingHour> value) throws IOException {
+        out.nullValue();
+    }
 
     @FromJson
     public List<LocationWorkingHour> fromJson(JsonReader in) throws IOException {
