@@ -12,6 +12,7 @@ public class DateUnixTimestampSecondsAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, @DateUnixTimestamp Date date) throws IOException {
+        out.setSerializeNulls(false);
         if (date != null) {
             out.value(date.getTime() / 1000L);
         } else {
