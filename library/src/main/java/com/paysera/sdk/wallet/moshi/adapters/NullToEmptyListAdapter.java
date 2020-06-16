@@ -1,7 +1,6 @@
 package com.paysera.sdk.wallet.moshi.adapters;
 
 import com.squareup.moshi.*;
-import com.sun.istack.internal.Nullable;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -13,7 +12,7 @@ import static java.util.Collections.emptyList;
 public class NullToEmptyListAdapter extends JsonAdapter<List<?>> {
     public static final Factory Factory = new JsonAdapter.Factory() {
 
-        @Override @Nullable
+        @Override
         public JsonAdapter<?> create(Type type, Set<? extends Annotation> annotations, Moshi moshi) {
             if (!annotations.isEmpty()) {
                 return null;
@@ -40,7 +39,7 @@ public class NullToEmptyListAdapter extends JsonAdapter<List<?>> {
         return adapter.fromJson(reader);
     }
 
-    @Override public void toJson(JsonWriter writer, @Nullable List<?> value) throws IOException {
+    @Override public void toJson(JsonWriter writer, List<?> value) throws IOException {
         if (value == null) {
             throw new IllegalStateException("Wrap JsonAdapter with .nullSafe().");
         }
