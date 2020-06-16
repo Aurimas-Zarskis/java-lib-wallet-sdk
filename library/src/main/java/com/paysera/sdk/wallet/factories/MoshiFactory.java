@@ -9,6 +9,7 @@ public class MoshiFactory {
 
     public static Moshi createMoshi() {
         return new Moshi.Builder()
+            .add(NullToEmptyListAdapter.Factory)
             .add(new BigDecimalAdapter())
             .add(new MoneyAdapter())
             .add(new MoneyDecimalAdapter())
