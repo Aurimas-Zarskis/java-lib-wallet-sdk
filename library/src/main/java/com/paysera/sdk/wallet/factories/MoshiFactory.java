@@ -20,7 +20,6 @@ public class MoshiFactory {
             .add(new TransferNotificationAdapter())
             .add(new ClientAdapter())
             .add(MetadataAwareResponseAdapter.Factory)
-//            .add(NullToEmptyListAdapter.Factory)
             .build();
     }
 }
