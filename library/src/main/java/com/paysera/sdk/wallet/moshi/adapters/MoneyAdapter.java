@@ -24,10 +24,14 @@ public class MoneyAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, Money money) throws IOException {
-        out.beginObject();
-        out.name("amount").value(money.getAmount().toPlainString());
-        out.name("currency").value(money.getCurrencyUnit().getCode());
-        out.endObject();
+        if (money != null) {
+            out.beginObject();
+            out.name("amount").value(money.getAmount().toPlainString());
+            out.name("currency").value(money.getCurrencyUnit().getCode());
+            out.endObject();
+        } else {
+            out.nullValue();
+        }
     }
 
     @FromJson
