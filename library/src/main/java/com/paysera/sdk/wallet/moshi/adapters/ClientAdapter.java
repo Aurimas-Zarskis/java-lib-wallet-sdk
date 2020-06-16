@@ -10,9 +10,13 @@ public class ClientAdapter {
 
     @ToJson
     public void toJson(JsonWriter writer, Client client) throws IOException {
-        writer.beginObject();
-        writer.name("type").value(client.getType());
-        writer.endObject();
+        if (client != null) {
+            writer.beginObject();
+            writer.name("type").value(client.getType());
+            writer.endObject();
+        } else {
+            writer.nullValue();
+        }
     }
 
     @FromJson

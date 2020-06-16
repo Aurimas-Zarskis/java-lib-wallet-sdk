@@ -13,15 +13,19 @@ public class TransferNotificationAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, List<TransferNotification> value) throws IOException {
-        out.beginObject();
-        for (TransferNotification item : value) {
-            out.name(item.getType());
+        if (value != null) {
             out.beginObject();
-            out.name("email").value(item.getEmail());
-            out.name("locale").value(item.getLocale());
+            for (TransferNotification item : value) {
+                out.name(item.getType());
+                out.beginObject();
+                out.name("email").value(item.getEmail());
+                out.name("locale").value(item.getLocale());
+                out.endObject();
+            }
             out.endObject();
+        } else {
+            out.nullValue();
         }
-        out.endObject();
     }
 
     @FromJson

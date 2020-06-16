@@ -15,7 +15,6 @@ public class DateAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, Date value) throws IOException {
-        out.setSerializeNulls(false);
         if (value != null) {
             out.value(dateFormat.format(value));
         } else {

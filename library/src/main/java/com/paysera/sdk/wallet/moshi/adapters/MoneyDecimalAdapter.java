@@ -24,7 +24,6 @@ public class MoneyDecimalAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, @MoneyDecimal Money money) throws IOException {
-        out.setSerializeNulls(false);
         if (money != null) {
             out.beginObject();
             out.name("amount_decimal").value(money.getAmount().toPlainString());

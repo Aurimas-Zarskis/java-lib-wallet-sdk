@@ -5,6 +5,8 @@ import java.util.List;
 import com.paysera.sdk.wallet.moshi.Anotations.DateUnixTimestamp;
 import com.paysera.sdk.wallet.entities.notification.TransferNotification;
 import com.squareup.moshi.Json;
+import com.squareup.moshi.JsonClass;
+import com.sun.istack.internal.Nullable;
 import org.joda.money.Money;
 
 public class Transfer {

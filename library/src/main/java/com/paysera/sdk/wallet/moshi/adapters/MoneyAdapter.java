@@ -24,7 +24,6 @@ public class MoneyAdapter {
 
     @ToJson
     public void toJson(JsonWriter out, Money money) throws IOException {
-        out.setSerializeNulls(false);
         if (money != null) {
             out.beginObject();
             out.name("amount").value(money.getAmount().toPlainString());
