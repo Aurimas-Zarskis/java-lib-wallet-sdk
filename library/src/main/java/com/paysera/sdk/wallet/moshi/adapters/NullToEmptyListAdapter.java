@@ -40,9 +40,11 @@ public class NullToEmptyListAdapter extends JsonAdapter<List<?>> {
     }
 
     @Override public void toJson(JsonWriter writer, List<?> value) throws IOException {
-        if (value == null) {
-            throw new IllegalStateException("Wrap JsonAdapter with .nullSafe().");
+        writer.setSerializeNulls(false);
+        if (value != null) {
+            adapter.toJson(writer, value);
+        } else {
+            writer.nullValue();
         }
-        adapter.toJson(writer, value);
     }
 }
