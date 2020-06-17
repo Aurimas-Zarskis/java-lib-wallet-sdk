@@ -1,1 +1,10 @@
 target
+.gradle
+/local.properties
+.idea
+.DS_Store
+build
+*.iml
+fastlane/report.xml
+fastlane/.env
+out

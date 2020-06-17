@@ -4,23 +4,25 @@ import com.paysera.sdk.wallet.entities.client.ApplicationClient;
 import com.paysera.sdk.wallet.entities.client.Client;
 import com.paysera.sdk.wallet.moshi.ClientJson;
 import com.squareup.moshi.*;
-import java.io.IOException;
 
 public class ClientAdapter {
 
     @ToJson
-    public void toJson(JsonWriter writer, Client client) throws IOException {
+    public ClientJson toJson(Client client) {
         if (client != null) {
-            writer.beginObject();
-            writer.name("type").value(client.getType());
-            writer.endObject();
+            if (client.getType().equals("app_client")) {
+                ApplicationClient appClient = (ApplicationClient) client;
+                return new ClientJson(appClient.getType(), appClient.getCredentials(), appClient.getInfo());
+            } else {
+                throw new IllegalArgumentException("Invalid type instance passed");
+            }
         } else {
-            writer.nullValue();
+            return new ClientJson();
         }
     }
 
     @FromJson
-    public Client fromJson(ClientJson client) throws IOException {
+    public Client fromJson(ClientJson client) {
         if (client.getType().equals("app_client")) {
             return new ApplicationClient(client.getCredentials(), client.getInfo());
         } else {

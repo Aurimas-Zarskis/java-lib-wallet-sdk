@@ -10,6 +10,12 @@ public class ClientJson {
 
     public ClientJson() { }
 
+    public ClientJson(String type, Credentials credentials, ApplicationClientInfo info) {
+        this.type = type;
+        this.credentials = credentials;
+        this.info = info;
+    }
+
     public String getType() {
         return type;
     }
