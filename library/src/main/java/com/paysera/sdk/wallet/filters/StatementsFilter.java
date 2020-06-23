@@ -18,6 +18,7 @@ public class StatementsFilter extends BaseFilter {
     private String orderBy;
     private String before;
     private String after;
+    private String currency;
 
     public Integer getWalletId() {
         return walletId;
@@ -105,5 +106,13 @@ public class StatementsFilter extends BaseFilter {
 
     public void setOrderBy(String orderBy) {
         this.orderBy = orderBy;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

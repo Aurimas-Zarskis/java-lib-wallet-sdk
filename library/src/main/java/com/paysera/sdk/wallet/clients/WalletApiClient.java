@@ -225,7 +225,8 @@ public interface WalletApiClient {
         @Query("after") String after,
         @Query("before") String before,
         @Query("order_by") String orderBy,
-        @Query("order_direction") String orderDirection
+        @Query("order_direction") String orderDirection,
+        @Query("currency") String currency
     );
 
     @GET("wallet/{id}/pending-payments")

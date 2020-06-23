@@ -393,7 +393,8 @@ public class WalletAsyncClient extends BaseAsyncClient {
             statementsFilter.getAfter(),
             statementsFilter.getBefore(),
             statementsFilter.getOrderBy(),
-            EnumHelper.enumToString(statementsFilter.getOrderDirection())
+            EnumHelper.enumToString(statementsFilter.getOrderDirection()),
+            statementsFilter.getCurrency()
         ));
     }
 
