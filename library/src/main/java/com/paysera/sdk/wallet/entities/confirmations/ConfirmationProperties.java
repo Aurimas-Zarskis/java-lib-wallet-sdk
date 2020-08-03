@@ -2,14 +2,12 @@ package com.paysera.sdk.wallet.entities.confirmations;
 
 import com.squareup.moshi.Json;
 
-import java.util.Map;
-
 public class ConfirmationProperties {
     private String translation;
     @Json(name = "translation_slug")
     private String translationSlug;
-    @Json(name = "translations_parameters")
-    private Map<String, String> translationsParameters;
+    @Json(name = "translation_parameters")
+    private ConfirmationTranslationParameters translationParameters;
     private String code;
     private String type;
     @Json(name = "acceptance_required")
@@ -31,12 +29,12 @@ public class ConfirmationProperties {
         this.translationSlug = translationSlug;
     }
 
-    public Map<String, String> getTranslationsParameters() {
-        return translationsParameters;
+    public ConfirmationTranslationParameters getTranslationParameters() {
+        return translationParameters;
     }
 
-    public void setTranslationsParameters(Map<String, String> translationsParameters) {
-        this.translationsParameters = translationsParameters;
+    public void setTranslationParameters(ConfirmationTranslationParameters translationsParameters) {
+        this.translationParameters = translationsParameters;
     }
 
     public String getCode() {
