@@ -11,6 +11,7 @@ public class MoshiFactory {
         return new Moshi.Builder()
             .add(new BigDecimalAdapter())
             .add(new MoneyAdapter())
+            .add(new ListMoneyAdapter())
             .add(new MoneyDecimalAdapter())
             .add(new DateAdapter())
             .add(new DateUnixTimestampSecondsAdapter())

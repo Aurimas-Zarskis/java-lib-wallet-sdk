@@ -1,18 +1,18 @@
-package com.paysera.sdk.wallet.adapters;
+package com.paysera.sdk.wallet.moshi.adapters;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.squareup.moshi.FromJson;
+import com.squareup.moshi.JsonReader;
+import com.squareup.moshi.JsonWriter;
+import com.squareup.moshi.ToJson;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListMoneyAdapter extends TypeAdapter<List<Money>> {
+public class ListMoneyAdapter {
 
     private final RoundingMode roundingMode;
 
@@ -24,8 +24,8 @@ public class ListMoneyAdapter extends TypeAdapter<List<Money>> {
         this.roundingMode = RoundingMode.HALF_UP;
     }
 
-    @Override
-    public void write(JsonWriter out, List<Money> moneyList) throws IOException {
+    @ToJson
+    public void toJson(JsonWriter out, List<Money> moneyList) throws IOException {
         out.beginArray();
         for (Money money : moneyList) {
             out.beginObject();
@@ -36,8 +36,8 @@ public class ListMoneyAdapter extends TypeAdapter<List<Money>> {
         out.endArray();
     }
 
-    @Override
-    public List<Money> read(JsonReader in) throws IOException {
+    @FromJson
+    public List<Money> fromJson(JsonReader in) throws IOException {
         ArrayList<Money> outMoneyList = new ArrayList();
         in.beginArray();
         String amount = null;
